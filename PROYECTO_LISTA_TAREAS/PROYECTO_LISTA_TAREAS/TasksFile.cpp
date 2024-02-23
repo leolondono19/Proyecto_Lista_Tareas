@@ -104,8 +104,6 @@ void TasksFile::displayCompletedTasks() {
     int taskNumber = 1;
     int i = 1;
     while (getline(inFile, line)) {
-        gotoxy(1, i);
-        i++;
         string taskName, taskDate, taskStatus;
         int taskIndex = 0;
 
@@ -120,12 +118,17 @@ void TasksFile::displayCompletedTasks() {
         taskDate = line.substr(taskDateEnd + 1, taskNameEnd - taskDateEnd);
         taskStatus = line.substr(taskNameEnd + 1);
 
-        cout << taskNumber << ". ";
-        cout << "Task Name: " << setw(30) << left << taskName;
-        cout << "Date: " << setw(15) << left << taskDate;
+        if (i == 1) {
+            gotoxy(0, 1);
+        }
+
+        cout << " " << taskNumber << ". ";
+        cout << "Task Name: " << setw(25) << left << taskName;
+        cout << "Limit Date: " << setw(18) << left << taskDate;
         cout << "Status: " << setw(5) << left << "Completed" << endl;
 
         taskNumber++;
+        i++;
     }
 
     inFile.close();
@@ -140,9 +143,8 @@ void TasksFile::displayTasks() {
 
     string line;
     int taskNumber = 1;
+    int i = 1;
     while (getline(inFile, line)) {
-        gotoxy(1, i);
-        i++;
         string taskName, taskDate, taskStatus;
         int taskIndex = 0; 
 
@@ -157,12 +159,17 @@ void TasksFile::displayTasks() {
         taskDate = line.substr(taskDateEnd + 1, taskNameEnd - taskDateEnd);
         taskStatus = line.substr(taskNameEnd + 1);
 
-        cout << taskNumber << ". ";
-        cout << "Task Name: " << setw(30) << left << taskName;
-        cout << "Date: " << setw(15) << left << taskDate;
+        if (i == 1) {
+            gotoxy(0, 1);
+        }
+
+        cout << " " << taskNumber << ". ";
+        cout << "Task Name: " << setw(25) << left << taskName;
+        cout << "Limit Date: " << setw(18) << left << taskDate;
         cout << "Status: " << setw(5) << left << taskStatus << endl;
 
         taskNumber++;
+        i++;
     }
 
     inFile.close();
@@ -257,12 +264,3 @@ void TasksFile::updateFile() {
 
     outFile.close();
 }
-
-
-
-
-
-
-
-
-

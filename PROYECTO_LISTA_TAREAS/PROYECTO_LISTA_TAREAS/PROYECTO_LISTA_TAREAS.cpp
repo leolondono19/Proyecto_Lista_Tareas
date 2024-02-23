@@ -25,9 +25,9 @@ int main() {
         clear();
         cout << "\nBienvenido a tu control de tareas\n";
         cout << "\n1.- AGREGAR NUEVA TAREA";
-        cout << "\n2.- ELIMINAR TAREA";
+        cout << "\n2.- MODIFICAR ESTADO";
         cout << "\n3.- REPORTE DE MIS TAREAS";
-        cout << "\n4.- MODIFICAR EL ESTADO DE UNA TAREA";
+        cout << "\n4.- TAREAS COMPLETADAS";
         cout << "\n5.- Exit";
         cout << "\nChoose an option: \n";
         cin >> i;
@@ -55,6 +55,8 @@ int main() {
             PantallaPrincipal.displayBorder(width, heigth);
             pausa();
             break;
+        case 5:
+            exit(1);
         }
     }
 }
