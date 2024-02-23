@@ -1,9 +1,9 @@
 #pragma once
-class Table
+class Border
 {
 public:
-	void displayMap(int width, int heigth);
-	Table(int witdh, int height);
+	void displayBorder(int width, int heigth);
+	Border(int witdh, int height);
 	void gotoxy(int x, int y);
 	char TableSize[81][24];
 private:

@@ -128,10 +128,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="PROYECTO_LISTA_TAREAS.cpp" />
-    <ClCompile Include="Table.cpp" />
+    <ClCompile Include="Border.cpp" />
+    <ClCompile Include="TasksFile.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Table.h" />
+    <ClInclude Include="Border.h" />
+    <ClInclude Include="TasksFile.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
