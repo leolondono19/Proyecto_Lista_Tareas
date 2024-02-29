@@ -33,10 +33,7 @@ void TasksFile::registerTask() {
     cout << "Task added successfully." << endl;
 }
 
-
-
-
-void TasksFile::deleteTask() {
+void TasksFile::modifyTask() {
     ifstream inFile("tasks.txt");
     if (!inFile) {
         cout << "Unable to open file." << endl;
@@ -46,10 +43,10 @@ void TasksFile::deleteTask() {
     displayTasks();
 
     int taskIndex;
-    cout << "Enter task index to delete: ";
+    cout << "Enter task number to modify: ";
     cin >> taskIndex;
     if (taskIndex < 1) {
-        cout << "Invalid task index." << endl;
+        cout << "Invalid task number." << endl;
         return;
     }
 
@@ -90,7 +87,7 @@ void TasksFile::deleteTask() {
         tasks.erase(tasks.begin() + taskIndex - 1);
     }
 
-    cout << "Task deleted successfully." << endl;
+    cout << "Task modify successfully." << endl;
 }
 
 void TasksFile::displayCompletedTasks() {
@@ -175,60 +172,31 @@ void TasksFile::displayTasks() {
     inFile.close();
 }
 
-void TasksFile::updateTaskStatus() {
-    tasks.clear();
-
+void TasksFile::deleteTask() {
     ifstream inFile("tasks.txt");
     if (!inFile) {
         cout << "Unable to open file." << endl;
         return;
     }
 
+    vector<string> lines;
     string line;
     while (getline(inFile, line)) {
-
-        istringstream iss(line);
-        string taskName, taskDate, taskStatus;
-        if (getline(iss, taskName, ' ') && getline(iss, taskDate, ' ') && getline(iss, taskStatus)) {
-            tasks.push_back({ taskName, taskDate, taskStatus == "1" ? true : false });
-        }
+        lines.push_back(line);
     }
-
     inFile.close();
 
-    if (tasks.empty()) {
-        cout << "No tasks available to update status." << endl;
-        return;
-    }
-
-    displayTasks(); 
+    displayTasks();
 
     int taskIndex;
-    cout << "Enter task index to update status: ";
+    cout << "Enter task number to delete: ";
     cin >> taskIndex;
-
-    if (taskIndex < 1 || taskIndex > tasks.size()) {
-        cout << "Invalid task index." << endl;
+    if (taskIndex < 1 || taskIndex > lines.size()) {
+        cout << "Invalid task number." << endl;
         return;
     }
 
-    cout << "Choose new status (1 for pending, 2 for in progress, 3 for completed): ";
-    int newStatus;
-    cin >> newStatus;
-
-    if (newStatus == 1) {
-        tasks[taskIndex - 1].completed = false;
-    }
-    else if (newStatus == 2) {
-        tasks[taskIndex - 1].completed = true;
-    }
-    else if (newStatus == 3) {
-        tasks.erase(tasks.begin() + taskIndex - 1);
-    }
-    else {
-        cout << "Invalid status." << endl;
-        return;
-    }
+    lines.erase(lines.begin() + taskIndex - 1);
 
     ofstream outFile("tasks.txt", ofstream::out | ofstream::trunc);
     if (!outFile) {
@@ -236,15 +204,13 @@ void TasksFile::updateTaskStatus() {
         return;
     }
 
-    for (int i = 0; i < tasks.size(); ++i) {
-        outFile << tasks[i].name << " " << tasks[i].date << " " << (tasks[i].completed ? "1" : "0") << endl;
+    for (const string& line : lines) {
+        outFile << line << endl;
     }
 
     outFile.close();
-
-    cout << "Task status updated successfully." << endl;
+    cout << "Task deleted successfully." << endl;
 }
-
 
 void TasksFile::gotoxy(int x, int y) {
     COORD pos = { x, y };
