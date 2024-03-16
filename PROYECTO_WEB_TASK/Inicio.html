@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Tareas</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap">
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #4e54c8, #8f94fb);
+            animation: fadeIn 1s ease-out;
+        }
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+        header {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            animation: slideDown 1s ease-out;
+        }
+        @keyframes slideDown {
+            0% {
+                opacity: 0;
+                transform: translateY(-100%);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        h1, h2 {
+            font-family: 'Pacifico', cursive;
+            color: #333;
+            text-align: center;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            animation: zoomIn 1s ease-out;
+        }
+        @keyframes zoomIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        .banner {
+            background-image: url('imagen.jpg');
+            background-size: cover;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .banner h1 {
+            color: #fff;
+            font-size: 36px;
+            text-align: center;
+        }
+        .login-link {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .login-link a {
+            color: #333;
+            text-decoration: none;
+            font-weight: bold;
+            font-family: 'Pacifico', cursive;
+        }
+        .login-link a:hover {
+            text-decoration: underline;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            left: 0;
+        }
+        footer p {
+            margin: 0;
+        }
+        .icon {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+        .register {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .image-container {
+            text-align: center;
+            margin-top: 50px;
+        }
+        .image-container img {
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Bienvenido al Sistema de Registro de Tareas</h1>
+        <p>Aquí puedes organizar tus tareas de manera eficiente.</p>
+    </header>
+    <div class="banner">
+        <h1>¡Organiza tus tareas de manera eficiente!</h1>
+    </div>
+    <div class="container">
+        <div class="register">
+            <h2>Regístrate o Inicia Sesión</h2>
+            <div class="login-link">
+                <a href="registro.php">Regístrate</a> o <a href="Sesion.php">Inicia Sesión</a>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>Realizado por CodeMakers</p>
+    </footer>
+    <div class="icon">
+        <img src="logo1111.png" alt="icono" width="50">
+    </div>
+    <div class="image-container">
+        <img src="imagen.jpg" alt="Imagen Central" width="600">
+    </div>
+</body>
+</html>

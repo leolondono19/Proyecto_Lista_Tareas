@@ -13,10 +13,10 @@ public:
     TasksFile() {}
 
     void registerTask();
-    void deleteTask();
+    void modifyTask();
     void displayCompletedTasks();
     void displayTasks();
-    void updateTaskStatus();
+    void deleteTask();
     void gotoxy(int x, int y);
 
 private:

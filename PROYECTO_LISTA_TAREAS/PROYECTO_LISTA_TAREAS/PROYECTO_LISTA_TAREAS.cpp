@@ -21,14 +21,15 @@ int main() {
     TasksFile taskFile;
 
     int i = 0;
-    while (i != 5) {
+    while (i != 6) {
         clear();
         cout << "\nBienvenido a tu control de tareas\n";
         cout << "\n1.- AGREGAR NUEVA TAREA";
         cout << "\n2.- MODIFICAR ESTADO";
         cout << "\n3.- REPORTE DE MIS TAREAS";
         cout << "\n4.- TAREAS COMPLETADAS";
-        cout << "\n5.- Exit";
+        cout << "\n5.- BORRAR TAREAS";
+        cout << "\n6.- Exit";
         cout << "\nChoose an option: \n";
         cin >> i;
 
@@ -40,7 +41,7 @@ int main() {
             break;
         case 2:
             clear();
-            taskFile.deleteTask();
+            taskFile.modifyTask();
             pausa();
             break;
         case 3:
@@ -56,6 +57,11 @@ int main() {
             pausa();
             break;
         case 5:
+            clear();
+            taskFile.deleteTask();
+            pausa();
+            break;
+        case 6:
             exit(1);
         }
     }
